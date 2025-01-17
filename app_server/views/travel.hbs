@@ -16,6 +16,14 @@
 						<div class="body">
 							<h1>Travel</h1>
 							<ul id="sites">
+			{{#each trips}}
+								<li>
+									<a href="/travel"><img src="images/{{this.image}}" alt="Img"</a>
+									<h2><a href="/travel">{{this.name}}</a></h2>
+									{{{this.description}}}
+								</li>
+			{{/each}}					
+								<!--
 								<li>
 									<a href=“travel.html"><img src="images/reef1.jpg" alt="Img"></a>
 									<h2><a href=“travel.html">Gale Reef</a></h2>
@@ -45,7 +53,7 @@
 									<p>
 										Vulputate eget libero. In hac habitasse platea dictumst. Integer purus justo, egestas eu consectetur eu, cursus in tortor. Quisque nec nunc ac mi ultrices iaculis.
 									</p>
-								</li>
+								</li> -->
 							</ul>
 						</div>
 					</div>
