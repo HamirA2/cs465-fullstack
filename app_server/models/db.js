@@ -43,20 +43,23 @@ const gracefulShutdown = (msg) => {
 // Event listeners to process graceful shutdowns
 // Shutdown invoked by nodemon signal
 process.once('SIGUSR2', () => {
-    gracefulShutdown('nodemon restart');
-    process.kill(process.pid, 'SIGUSR2');
+    gracefulShutdown('nodemon restart', () => {
+        process.kill(process.pid, 'SIGUSR2');    
+    });
 });
 
 // Shutdown invoked by app termination
 process.on('SIGINT', () => {
-    gracefulShutdown('app termination');
-    process.exit(0);
+    gracefulShutdown('app termination', () => {
+        process.exit(0);
+    });
 });
 
 // Shutdown invoked by container termination
 process.on('SIGTERM', () => {
-    gracefulShutdown('app shutdown');
-    process.exit(0);
+    gracefulShutdown('app shutdown', () => {
+        process.exit(0);
+    });
 });
 
 // Make initial connection to DB
