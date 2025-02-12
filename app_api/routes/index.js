@@ -5,7 +5,9 @@ const router = express.Router();
 const tripsController = require('../controllers/trips');
 
 // Define route for our trips endpoint, GET method routes tripslist
-router.route('/trips').get(tripsController.tripslist);
+router.route('/trips')
+.get(tripsController.tripslist)
+.post(tripsController.tripsAddTrip);  // POST method adds a trip
 
 // GET method routes tripsFindByCode - requires parameter
 router.route('/trips/:tripCode').get(tripsController.tripsFindByCode);
