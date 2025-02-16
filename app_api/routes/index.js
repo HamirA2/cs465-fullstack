@@ -3,6 +3,10 @@ const router = express.Router();
 
 // Import controllers to route
 const tripsController = require('../controllers/trips');
+const authController = require('../controllers/authentication');
+
+router.route('/register').post(authController.register);
+//router.route('/login').post(authController.login);
 
 // Define route for our trips endpoint, GET method routes tripslist
 router.route('/trips')
